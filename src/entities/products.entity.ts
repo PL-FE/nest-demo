@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import { Column, Entity, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 
 // Column：列/字段
@@ -8,12 +9,15 @@ import { Column, Entity, PrimaryGeneratedColumn, BaseEntity } from 'typeorm';
 @Entity()
 // Products需要与数据表同名
 export class Products extends BaseEntity {
+  @ApiProperty({ description: 'id', default: '' })
   @PrimaryGeneratedColumn()
   id: number;
 
+  @ApiProperty({ description: 'name', default: '' })
   @Column({ type: 'varchar', name: 'name' })
   name: string;
 
+  @ApiProperty({ description: 'type', default: '' })
   @Column({ type: 'varchar', name: 'type' })
   type: string;
 }
